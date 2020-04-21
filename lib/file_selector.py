@@ -47,6 +47,10 @@ def chooseAnImage(dir):
 
     if(len(files) > 0):
         indexImage = (int)(input("Which img would you like to analyse : "))
-        print(f"Image chosen : {files[indexImage]}")
+
+        chosenImg = files[indexImage]
+        print(f"Image chosen : {chosenImg}")
+
+        return chosenImg
     else:
         print("No images found in directory '{dir}' !", file=sys.stderr)
