@@ -11,6 +11,13 @@ Le groupe décide d'effectuer le projet numéro **2**, soit **Traitement d'image
 - Détection de contour selon l’algorithme de Canny (https://fr.wikipedia.org/wiki/Filtre_de_Canny) 
 - Calcul et illustration de la FFT des images avant et après filtrage
 
+## Modules
+
+| Module        | Utilité                                          |
+|---------------|--------------------------------------------------|
+| file_selector | Permet de lister et choisir une image à analyser |
+| plotter       | Définir toutes les méthodes de plot              |
+
 ## Sources
 
 - https://towardsdatascience.com/canny-edge-detection-step-by-step-in-python-computer-vision-b49c3a2d8123
