@@ -8,6 +8,8 @@ Version : 1.0
 """
 
 import os
+import glob
+import sys
 
 
 def getAllFiles(dir):
@@ -16,10 +18,11 @@ def getAllFiles(dir):
     Only keep images files (*.png *.jpg *.jpeg)
     """
 
+    fileExtensions = ("*.png", "*.jpeg", "*.jpg", "*.gif")
+
     listFiles = []
-    for root, directories, files in os.walk(dir):
-        for file in files:
-            listFiles.append(os.path.join(root, file))
+    for files in fileExtensions:
+        listFiles.extend(glob.glob(f"{dir}/{files}"))
 
     return listFiles
 
@@ -42,6 +45,8 @@ def chooseAnImage(dir):
     files = getAllFiles(dir)
     writeAllFiles(files)
 
-    indexImage = (int)(input("Which img would you like to analyse : "))
-
-    print(f"Image chosen : {files[indexImage]}")
+    if(len(files) > 0):
+        indexImage = (int)(input("Which img would you like to analyse : "))
+        print(f"Image chosen : {files[indexImage]}")
+    else:
+        print("No images found in directory '{dir}' !", file=sys.stderr)
