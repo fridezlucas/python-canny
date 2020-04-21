@@ -17,7 +17,7 @@ def getAllFiles(dir):
     """
 
     listFiles = []
-    for root, directories, files in os.walk(os.getcwd() + "/" + dir):
+    for root, directories, files in os.walk(dir):
         for file in files:
             listFiles.append(os.path.join(root, file))
 
