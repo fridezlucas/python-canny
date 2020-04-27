@@ -13,6 +13,7 @@ import lib.plotter as plotter
 import os
 import platform
 
+
 def clearShell():
     """ Clear Shell according to current OS
 
@@ -23,6 +24,7 @@ def clearShell():
         os.system("cls")
     else:
         os.system("clear")
+
 
 def main():
     """Main method
@@ -40,9 +42,7 @@ def main():
     directory = f"{os.getcwd()}/img"
     imagePath = file_selector.chooseAnImage(directory)
 
-    plotter.plotGrayscaleImage(imagePath)
-    plotter.plotImageRGB(imagePath)
-    
+    plotter.plotAll(imagePath)
 
 
 # Main Program

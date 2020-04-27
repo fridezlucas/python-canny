@@ -54,7 +54,7 @@ def plotGrayscaleImage(image):
     """
     img = mpimg.imread(image)
 
-    plt.figure(1)
+    plt.figure("Plot 3/3 : Grayscale image")
     plt.suptitle("Grayscale image")
     plt.imshow(getBlackWhiteImage(img), cmap=plt.get_cmap("gray"))
     plt.show()
@@ -69,19 +69,29 @@ def plotImageRGB(image):
     img = mpimg.imread(image)
 
     figure, axes = plt.subplots(nrows=2, ncols=2)
+    figure.canvas.set_window_title("Plot 1/3 : Image RGB")
 
     plt.suptitle("Analyse RGB image")
     axes[0, 0].set_title("Original image")
     axes[0, 0].imshow(img)
 
-    axes[0, 1].set_title("Original image R")
+    axes[0, 1].set_title("Image R values")
     axes[0, 1].imshow(erase2RGBValues(img, 1, 2))
 
-    axes[1, 0].set_title("Original image G")
+    axes[1, 0].set_title("Image G values")
     axes[1, 0].imshow(erase2RGBValues(img, 0, 2))
 
-    axes[1, 1].set_title("Original image B")
+    axes[1, 1].set_title("Image B values")
     axes[1, 1].imshow(erase2RGBValues(img, 0, 1))
 
     figure.tight_layout()
     plt.show()
+
+
+def plotAll(image):
+    """ Plot all variants with image given
+
+    image : image to plot in multiple variants
+    """
+    plotImageRGB(image)
+    plotGrayscaleImage(image)
