@@ -9,6 +9,7 @@ Version : 1.0
 
 # Import All modules
 import lib.file_selector as file_selector
+import lib.plotter as plotter
 import os
 import platform
 
@@ -37,7 +38,10 @@ def main():
 
     # Run main program
     directory = f"{os.getcwd()}/img"
-    file_selector.chooseAnImage(directory)
+    imagePath = file_selector.chooseAnImage(directory)
+
+    plotter.plotImageRGB(imagePath)
+    
 
 
 # Main Program
