@@ -40,6 +40,7 @@ def main():
     directory = f"{os.getcwd()}/img"
     imagePath = file_selector.chooseAnImage(directory)
 
+    plotter.plotGrayscaleImage(imagePath)
     plotter.plotImageRGB(imagePath)
     
 
