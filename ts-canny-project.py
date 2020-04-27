@@ -41,7 +41,6 @@ def main():
     imagePath = file_selector.chooseAnImage(directory)
 
     plotter.plotImageRGB(imagePath)
-    plotter.plotImageCMY(imagePath)
     
 
 
