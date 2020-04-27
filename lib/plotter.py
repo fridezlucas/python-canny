@@ -32,13 +32,13 @@ def plotImageRGB(image):
     axes[0,0].set_title("Original image")
     axes[0,0].imshow(img)
 
-    axes[0,1].set_title("Original image C")
+    axes[0,1].set_title("Original image R")
     axes[0,1].imshow(erase2RGBValues(img, 1, 2))
 
-    axes[1,0].set_title("Original image M")
+    axes[1,0].set_title("Original image G")
     axes[1,0].imshow(erase2RGBValues(img, 0, 2))
 
-    axes[1,1].set_title("Original image Y")
+    axes[1,1].set_title("Original image B")
     axes[1,1].imshow(erase2RGBValues(img, 0, 1))
 
     figure.tight_layout()
