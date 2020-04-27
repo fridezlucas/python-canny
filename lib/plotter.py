@@ -89,6 +89,10 @@ def plotImageRGB(image):
     plt.show()
 
 def plotImageCMY(image):
+    """Plot an image in 4 variants (original, C, M, Y)
+
+    image : Image to plot
+    """
     figure, axes = plt.subplots(nrows=2, ncols=2)
     figure.canvas.set_window_title("Plot 2/3 : Image CMY")
 
