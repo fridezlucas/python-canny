@@ -12,6 +12,8 @@ import matplotlib.image as mpimg
 import numpy as np
 from PIL import Image
 
+from lib.canny import canny
+
 
 def erase2Values(image, v1, v2):
     """ Erase 2 RGB values (set to 0)
@@ -116,11 +118,33 @@ def plotImageCMY(image):
     figure.tight_layout()
     plt.show()
 
+def plotImageCanny(image):
+    """Plot an image with Canny
+
+    image : Image to plot
+    """
+
+    figure, axes = plt.subplots(nrows=1, ncols=2)
+    figure.canvas.set_window_title("Canny")
+
+    img = mpimg.imread(image)
+
+    plt.suptitle("Analyse RGB image")
+    axes[0].set_title("Original image")
+    axes[0].imshow(img)
+
+    axes[1].set_title("Image C values")
+    axes[1].imshow(canny(getBlackWhiteImage(img)))
+
+    figure.tight_layout()
+    plt.show()
+
 def plotAll(image):
     """ Plot all variants with image given
 
     image : image to plot in multiple variants
     """
-    plotImageRGB(image)
-    plotImageCMY(image)
+    plotImageCanny(image)
+    #plotImageRGB(image)
+    #plotImageCMY(image)
     plotGrayscaleImage(image)
