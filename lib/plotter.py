@@ -15,7 +15,7 @@ from PIL import Image
 from lib.canny import canny
 
 
-def erase2Values(image, v1, v2):
+def erase2Values(image, v1, v2, value=0):
     """ Erase 2 RGB values (set to 0)
 
     v1 : index value 1 to reset
@@ -28,10 +28,11 @@ def erase2Values(image, v1, v2):
 
     for y in img:
         for x in y:
-            x[v1] = 0
-            x[v2] = 0
+            x[v1] = value
+            x[v2] = value
 
     return img
+
 
 
 def getBlackWhiteImage(image):
@@ -95,25 +96,23 @@ def plotImageCMY(image):
 
     image : Image to plot
     """
+    img = mpimg.imread(image)
+
     figure, axes = plt.subplots(nrows=2, ncols=2)
     figure.canvas.set_window_title("Plot 2/3 : Image CMY")
 
-    img = Image.open(image)
-
-    plt.suptitle("Analyse RGB image")
+    plt.suptitle("Analyse CMY image")
     axes[0, 0].set_title("Original image")
     axes[0, 0].imshow(img)
 
-    img = np.asarray(Image.open(image).convert("CMYK"))
-
     axes[0, 1].set_title("Image C values")
-    axes[0, 1].imshow(Image.fromarray(np.uint8(erase2Values(img, 1, 2)), mode="CMYK"))
+    axes[0, 1].imshow(erase2Values(img, 1, 2, 1))
 
     axes[1, 0].set_title("Image M values")
-    axes[1, 0].imshow(Image.fromarray(np.uint8(erase2Values(img, 0, 2)), mode="CMYK"))
+    axes[1, 0].imshow(erase2Values(img, 0, 2, 1))
 
     axes[1, 1].set_title("Image Y values")
-    axes[1, 1].imshow(Image.fromarray(np.uint8(erase2Values(img, 0, 1)), mode="CMYK"))
+    axes[1, 1].imshow(erase2Values(img, 0, 1, 1))
 
     figure.tight_layout()
     plt.show()
@@ -144,7 +143,7 @@ def plotAll(image):
 
     image : image to plot in multiple variants
     """
+    plotImageRGB(image)
+    plotImageCMY(image)
     plotImageCanny(image)
-    #plotImageRGB(image)
-    #plotImageCMY(image)
     plotGrayscaleImage(image)
