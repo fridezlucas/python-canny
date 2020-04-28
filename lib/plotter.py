@@ -7,10 +7,9 @@ Date    : 2020.04.21
 Version : 1.0
 """
 
-import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
+import matplotlib.pyplot as plt
 import numpy as np
-from PIL import Image
 
 from lib.canny import canny
 
@@ -47,6 +46,8 @@ def getBlackWhiteImage(image):
 
     rgb_weights = [0.299, 0.587, 0.114]
     grayscale_image = np.dot(img[..., :3], rgb_weights)
+
+    print(grayscale_image)
 
     return grayscale_image
 
