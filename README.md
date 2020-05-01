@@ -17,6 +17,7 @@ Le groupe décide d'effectuer le projet numéro **2**, soit **Traitement d'image
 |---------------|--------------------------------------------------|
 | file_selector | Permet de lister et choisir une image à analyser |
 | plotter       | Définir toutes les méthodes de plot              |
+| canny         | Canny Edge detector                              |
 
 ## Sources
 
