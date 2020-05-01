@@ -12,6 +12,7 @@ Le groupe décide d'effectuer le projet numéro **2**, soit **Traitement d'image
 - Calcul et illustration de la FFT des images avant et après filtrage
 
 ### Avancement
+
 | Objectif                        | Fait |
 |---------------------------------|------|
 | Lire une image                  | Oui  |
