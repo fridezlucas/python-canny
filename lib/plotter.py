@@ -129,7 +129,7 @@ def plotImageCanny(image):
 
     img = mpimg.imread(image)
 
-    plt.suptitle("Analyse RGB image")
+    plt.suptitle("Canny Edge detectors")
     axes[0].set_title("Original image")
     axes[0].imshow(img)
 
@@ -146,5 +146,5 @@ def plotAll(image):
     """
     plotImageRGB(image)
     plotImageCMY(image)
-    plotImageCanny(image)
     plotGrayscaleImage(image)
+    plotImageCanny(image)
