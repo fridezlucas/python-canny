@@ -33,7 +33,6 @@ def erase2Values(image, v1, v2, value=0):
     return img
 
 
-
 def getBlackWhiteImage(image):
     """ Get an image in grayscale
 
@@ -46,8 +45,6 @@ def getBlackWhiteImage(image):
 
     rgb_weights = [0.299, 0.587, 0.114]
     grayscale_image = np.dot(img[..., :3], rgb_weights)
-
-    print(grayscale_image)
 
     return grayscale_image
 
@@ -92,6 +89,7 @@ def plotImageRGB(image):
     figure.tight_layout()
     plt.show()
 
+
 def plotImageCMY(image):
     """Plot an image in 4 variants (original, C, M, Y)
 
@@ -118,6 +116,7 @@ def plotImageCMY(image):
     figure.tight_layout()
     plt.show()
 
+
 def plotImageCanny(image):
     """Plot an image with Canny
 
@@ -134,10 +133,11 @@ def plotImageCanny(image):
     axes[0].imshow(img)
 
     axes[1].set_title("Image C values")
-    axes[1].imshow(canny(getBlackWhiteImage(img)))
+    axes[1].imshow(canny(getBlackWhiteImage(img)), cmap=plt.get_cmap("gray"))
 
     figure.tight_layout()
     plt.show()
+
 
 def plotAll(image):
     """ Plot all variants with image given

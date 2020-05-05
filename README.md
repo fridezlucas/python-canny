@@ -23,7 +23,6 @@ Le groupe décide d'effectuer le projet numéro **2**, soit **Traitement d'image
 | Calcul et illustration FFT      | 0%   |
 
 
-
 ## Modules
 
 | Module        | Utilité                                          |
