@@ -19,7 +19,7 @@ Le groupe décide d'effectuer le projet numéro **2**, soit **Traitement d'image
 | Illustrer composants RGB        | Oui  |
 | Illustrer composants CMY        | Oui  |
 | Passer l'image RGB -> Grayscale | Oui  |
-| Détection Canny                 | 70%  |
+| Détection Canny                 | Oui  |
 | Calcul et illustration FFT      | 0%   |
 
 
