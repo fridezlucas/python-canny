@@ -168,4 +168,4 @@ def canny(image):
     thresholdImg = threshold(nonMaxImg)
     img_final = hysteresis(thresholdImg, 25)
 
-    return img_final
+    return [gradientMat, nonMaxImg, img_final]

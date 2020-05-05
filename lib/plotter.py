@@ -123,17 +123,25 @@ def plotImageCanny(image):
     image : Image to plot
     """
 
-    figure, axes = plt.subplots(nrows=1, ncols=2)
+    figure, axes = plt.subplots(nrows=2, ncols=2)
     figure.canvas.set_window_title("Canny")
 
     img = mpimg.imread(image)
 
     plt.suptitle("Canny Edge detectors")
-    axes[0].set_title("Original image")
-    axes[0].imshow(img)
+    axes[0][0].set_title("Original image [1/4]")
+    axes[0][0].imshow(img)
 
-    axes[1].set_title("Image C values")
-    axes[1].imshow(canny(getBlackWhiteImage(img)), cmap=plt.get_cmap("gray"))
+    imgCanny = canny(getBlackWhiteImage(img))
+
+    axes[0][1].set_title("Gradient image [2/4]")
+    axes[0][1].imshow(imgCanny[0], cmap=plt.get_cmap("gray"))
+
+    axes[1][0].set_title("Non max [3/4]")
+    axes[1][0].imshow(imgCanny[1], cmap=plt.get_cmap("gray"))
+
+    axes[1][1].set_title("Edge detected [4/4]")
+    axes[1][1].imshow(imgCanny[2], cmap=plt.get_cmap("gray"))
 
     figure.tight_layout()
     plt.show()
