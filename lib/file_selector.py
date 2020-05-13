@@ -16,6 +16,8 @@ def getAllFiles(dir):
     """ Get all images files
 
     Only keep images files (*.png *.jpg *.jpeg)
+
+    Return : list files
     """
 
     fileExtensions = ("*.png", "*.jpeg", "*.jpg", "*.gif")

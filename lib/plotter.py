@@ -20,7 +20,7 @@ def erase2Values(image, v1, v2, value=0):
     v1 : index value 1 to reset
     v2 : index value 2 to reset
 
-    return : image converted
+    Return : image converted
     """
 
     img = np.array(image, copy=True)
@@ -37,7 +37,7 @@ def getBlackWhiteImage(image):
     """ Get an image in grayscale
 
     image  : Image to convert to grayscale  
-    return : new image in grayscale
+    Return : new image in grayscale
     Source : https://kite.com/python/answers/how-to-convert-an-image-from-rgb-to-grayscale-in-python
     """
 

@@ -22,6 +22,8 @@ def gaussian_kernel(size, sigma=1):
     Reduce noise on image to do a better Edge detection
     size  : image size
     sigma : parameter in equation (default = 1)
+
+    Return : Gaussian Kernel
     """
 
     size = int(size) // 2
@@ -35,6 +37,8 @@ def sobel_filters(img):
     """ Detect edge intensity with gradient vectors
 
     img : image to analyze
+
+    Return : Gradient and angle
     """
 
     # sobel filters for each direction (x; y)
@@ -57,6 +61,8 @@ def non_max_suppression(img, D):
     """ Delete all non max value according to gradient
 
     Only edge will be kept
+
+    Return : Non zero image
     """
     M, N = img.shape
     Z = np.zeros((M, N), dtype=np.int32)
@@ -108,6 +114,8 @@ def threshold(img, lowThresholdRatio=0.05, highThresholdRatio=0.09):
     img : image to analyze
     lowThresholdRatio : Ratio for low threshold
     highThresholdRatio : Ratio for high threshold
+
+    Return : result image
     """
     highThreshold = img.max() * highThresholdRatio
     lowThreshold = highThreshold * lowThresholdRatio
@@ -136,6 +144,8 @@ def hysteresis(img, weak, strong=255):
     img    : image to analyse
     weak   : weak value to remove
     strong : strong value
+
+    Return image after hysteresis filter
     """
     
     img = img[0]
@@ -161,6 +171,8 @@ def canny(image):
 
     image : image to analyse and detect edges
     return : edge image
+
+    Return : All image steps
     """
     img_smoothed = convolve(image, gaussian_kernel(5, 1))
     gradientMat, thetaMat = sobel_filters(img_smoothed)
