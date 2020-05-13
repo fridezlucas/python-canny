@@ -56,7 +56,7 @@ def plotGrayscaleImage(image):
     """
     img = mpimg.imread(image)
 
-    plt.figure("Plot 3/3 : Grayscale image")
+    plt.figure("Step 3/5 : Grayscale image")
     plt.suptitle("Grayscale image")
     plt.imshow(getBlackWhiteImage(img), cmap=plt.get_cmap("gray"))
     plt.show()
@@ -71,7 +71,7 @@ def plotImageRGB(image):
     img = mpimg.imread(image)
 
     figure, axes = plt.subplots(nrows=2, ncols=2)
-    figure.canvas.set_window_title("Plot 1/3 : Image RGB")
+    figure.canvas.set_window_title("Step 1/5 : Image RGB")
 
     plt.suptitle("Analyse RGB image")
     axes[0, 0].set_title("Original image")
@@ -98,7 +98,7 @@ def plotImageCMY(image):
     img = mpimg.imread(image)
 
     figure, axes = plt.subplots(nrows=2, ncols=2)
-    figure.canvas.set_window_title("Plot 2/3 : Image CMY")
+    figure.canvas.set_window_title("Step 2/5 : Image CMY")
 
     plt.suptitle("Analyse CMY image")
     axes[0, 0].set_title("Original image")
@@ -128,7 +128,7 @@ def plotImageCanny(image):
 
     img = mpimg.imread(image)
 
-    plt.suptitle("Canny Edge detectors")
+    plt.suptitle("Step 4/5 : Canny Edge detectors")
     axes[0][0].set_title("Original image [1/4]")
     axes[0][0].imshow(img)
 
@@ -146,6 +146,37 @@ def plotImageCanny(image):
     figure.tight_layout()
     plt.show()
 
+def plotImageFFT(image):
+    """Plot an image FFT
+
+    image    : Image to plot
+    imageFFT : Image FFT to plot
+    canny    : Image canny to plot
+    cannyFFT : Image Canny FFT to plot
+    """
+
+    figure, axes = plt.subplots(nrows=2, ncols=2)
+    figure.canvas.set_window_title("FFT")
+
+    img = mpimg.imread(image)
+
+    plt.suptitle("Step 5/5 : Canny Edge detectors")
+    axes[0][0].set_title("Original image")
+    axes[0][0].imshow(img)
+
+    imgCanny = canny(getBlackWhiteImage(img))
+
+    axes[0][1].set_title("FFT original image")
+    axes[0][1].imshow(img)
+
+    axes[1][0].set_title("Canny image")
+    axes[1][0].imshow(imgCanny[2], cmap=plt.get_cmap("gray"))
+
+    axes[1][1].set_title("FFT Canny image")
+    axes[1][1].imshow(img)
+
+    figure.tight_layout()
+    plt.show()
 
 def plotAll(image):
     """ Plot all variants with image given
@@ -156,3 +187,4 @@ def plotAll(image):
     plotImageCMY(image)
     plotGrayscaleImage(image)
     plotImageCanny(image)
+    plotImageFFT(image)
