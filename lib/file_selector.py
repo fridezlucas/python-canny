@@ -41,6 +41,8 @@ def chooseAnImage(dir):
     """ Allow users to choose an image from a list
 
     dir : directory in which user will choose image
+
+    Return : chosen Image path
     """
     files = getAllFiles(dir)
     writeAllFiles(files)
