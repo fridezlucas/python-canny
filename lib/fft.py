@@ -7,13 +7,13 @@ Date    : 2020.05.13
 Version : 1.0
 """
 
-import os
-import glob
-import sys
+import matplotlib.image as mpimg
+import matplotlib.pyplot as plt
+import numpy as np
 
 def fftImage(image):
     """Calculate fft of image
 
     Return : fft Image
     """
-    pass
+    return abs(np.fft.fft2(image))

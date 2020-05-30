@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from lib.canny import canny
+from lib.fft import fftImage
 
 
 def erase2Values(image, v1, v2, value=0):
@@ -167,13 +168,13 @@ def plotImageFFT(image):
     imgCanny = canny(getBlackWhiteImage(img))
 
     axes[0][1].set_title("FFT original image")
-    axes[0][1].imshow(img)
+    axes[0][1].imshow(fftImage(img))
 
     axes[1][0].set_title("Canny image")
     axes[1][0].imshow(imgCanny[2], cmap=plt.get_cmap("gray"))
 
     axes[1][1].set_title("FFT Canny image")
-    axes[1][1].imshow(img)
+    axes[1][1].imshow(fftImage(imgCanny[2]), cmap=plt.get_cmap("gray"))
 
     figure.tight_layout()
     plt.show()
@@ -183,8 +184,8 @@ def plotAll(image):
 
     image : image to plot in multiple variants
     """
-    plotImageRGB(image)
-    plotImageCMY(image)
-    plotGrayscaleImage(image)
-    plotImageCanny(image)
+    # plotImageRGB(image)
+    # plotImageCMY(image)
+    # plotGrayscaleImage(image)
+    # plotImageCanny(image)
     plotImageFFT(image)
