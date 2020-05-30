@@ -184,8 +184,8 @@ def plotAll(image):
 
     image : image to plot in multiple variants
     """
-    # plotImageRGB(image)
-    # plotImageCMY(image)
-    # plotGrayscaleImage(image)
-    # plotImageCanny(image)
+    plotImageRGB(image)
+    plotImageCMY(image)
+    plotGrayscaleImage(image)
+    plotImageCanny(image)
     plotImageFFT(image)
