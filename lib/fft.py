@@ -16,4 +16,4 @@ def fftImage(image):
 
     Return : fft Image
     """
-    return abs(np.fft.fft2(image))
+    return (abs(np.fft.fft2(image)) * 255).astype(np.uint8)
