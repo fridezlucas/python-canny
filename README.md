@@ -11,26 +11,9 @@ Le groupe décide d'effectuer le projet numéro **2**, soit **Traitement d'image
 - Détection de contour selon l’algorithme de Canny (https://fr.wikipedia.org/wiki/Filtre_de_Canny) 
 - Calcul et illustration de la FFT des images avant et après filtrage
 
-### Avancement
+## Rendu de projet
 
-| Objectif                        | Fait |
-|---------------------------------|------|
-| Lire une image                  | Oui  |
-| Illustrer composants RGB        | Oui  |
-| Illustrer composants CMY        | Oui  |
-| Passer l'image RGB -> Grayscale | Oui  |
-| Détection Canny                 | Oui  |
-| Calcul et illustration FFT      | Oui  |
-
-
-## Modules
-
-| Module        | Utilité                                          |
-|---------------|--------------------------------------------------|
-| file_selector | Permet de lister et choisir une image à analyser |
-| plotter       | Définir toutes les méthodes de plot              |
-| canny         | Canny Edge detector                              |
-| fft           | Calculer la FFT2 d'une image                     |
+Le rendu de projet se trouve dans le wiki. [Voir le rendu de projet](https://labinfo.ing.he-arc.ch/gitlab/lucas.fridez/ts-canny-project/-/wikis/Home)
 
 ## Sources
 
