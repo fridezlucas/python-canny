@@ -7,6 +7,7 @@ Date    : 2020.04.21
 Version : 1.0
 """
 
+# Import all modules
 import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
 import numpy as np
@@ -27,7 +28,7 @@ def erase2Values(image, v1, v2, value=0):
     img = np.array(image, copy=True)
 
     if value == 1:
-        if img.dtype == "uint8" :
+        if img.dtype == "uint8":
             value = 255
 
     for y in img:
@@ -151,6 +152,7 @@ def plotImageCanny(image):
     figure.tight_layout()
     plt.show(block=False)
 
+
 def plotImageFFT(image):
     """Plot an image FFT
 
@@ -182,6 +184,7 @@ def plotImageFFT(image):
 
     figure.tight_layout()
     plt.show()
+
 
 def plotAll(image):
     """ Plot all variants with image given

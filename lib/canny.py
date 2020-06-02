@@ -7,6 +7,7 @@ Date    : 2020.04.28
 Version : 1.0
 """
 
+# Import all modules
 import numpy as np
 from scipy import ndimage
 from scipy.ndimage.filters import convolve
@@ -147,7 +148,7 @@ def hysteresis(img, weak, strong=255):
 
     Return image after hysteresis filter
     """
-    
+
     img = img[0]
     M, N = img.shape
     for i in range(1, M-1):

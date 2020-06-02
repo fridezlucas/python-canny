@@ -7,7 +7,7 @@ Date    : 2020.04.21
 Version : 1.0
 """
 
-# Import All modules
+# Import all modules
 import lib.file_selector as file_selector
 import lib.plotter as plotter
 import os

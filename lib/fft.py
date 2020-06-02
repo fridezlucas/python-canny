@@ -7,9 +7,11 @@ Date    : 2020.05.13
 Version : 1.0
 """
 
+# Import all modules
 import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
 import numpy as np
+
 
 def fftImage(image):
     """Calculate fft of image
