@@ -26,6 +26,10 @@ def erase2Values(image, v1, v2, value=0):
 
     img = np.array(image, copy=True)
 
+    if value == 1:
+        if img.dtype == "uint8" :
+            value = 255
+
     for y in img:
         for x in y:
             x[v1] = value
@@ -88,7 +92,7 @@ def plotImageRGB(image):
     axes[1, 1].imshow(erase2Values(img, 0, 1))
 
     figure.tight_layout()
-    plt.show()
+    plt.show(block=False)
 
 
 def plotImageCMY(image):
@@ -104,8 +108,6 @@ def plotImageCMY(image):
     plt.suptitle("Analyse CMY image")
     axes[0, 0].set_title("Original image")
     axes[0, 0].imshow(img)
-
-    print(img[0][0])
 
     axes[0, 1].set_title("Image C values")
     axes[0, 1].imshow(erase2Values(img, 1, 2, 1))
@@ -147,7 +149,7 @@ def plotImageCanny(image):
     axes[1][1].imshow(imgCanny[2], cmap=plt.get_cmap("gray"))
 
     figure.tight_layout()
-    plt.show()
+    plt.show(block=False)
 
 def plotImageFFT(image):
     """Plot an image FFT
