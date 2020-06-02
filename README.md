@@ -20,7 +20,7 @@ Le groupe décide d'effectuer le projet numéro **2**, soit **Traitement d'image
 | Illustrer composants CMY        | Oui  |
 | Passer l'image RGB -> Grayscale | Oui  |
 | Détection Canny                 | Oui  |
-| Calcul et illustration FFT      | 0%   |
+| Calcul et illustration FFT      | Oui  |
 
 
 ## Modules
@@ -30,6 +30,7 @@ Le groupe décide d'effectuer le projet numéro **2**, soit **Traitement d'image
 | file_selector | Permet de lister et choisir une image à analyser |
 | plotter       | Définir toutes les méthodes de plot              |
 | canny         | Canny Edge detector                              |
+| fft           | Calculer la FFT2 d'une image                     |
 
 ## Sources
 

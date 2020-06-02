@@ -105,6 +105,8 @@ def plotImageCMY(image):
     axes[0, 0].set_title("Original image")
     axes[0, 0].imshow(img)
 
+    print(img[0][0])
+
     axes[0, 1].set_title("Image C values")
     axes[0, 1].imshow(erase2Values(img, 1, 2, 1))
 
