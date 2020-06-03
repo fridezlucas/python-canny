@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def fftImage(image):
+def get_fft_image(image):
     """Calculate fft of image
 
     Return : fft Image

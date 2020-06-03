@@ -13,7 +13,7 @@ import glob
 import sys
 
 
-def getAllFiles(dir):
+def get_all_files(dir):
     """ Get all images files
 
     Only keep images files (*.png *.jpg *.jpeg)
@@ -21,16 +21,16 @@ def getAllFiles(dir):
     Return : list files
     """
 
-    fileExtensions = ("*.png", "*.jpeg", "*.jpg", "*.gif")
+    file_extensions = ("*.png", "*.jpeg", "*.jpg", "*.gif")
 
-    listFiles = []
-    for files in fileExtensions:
-        listFiles.extend(glob.glob(f"{dir}/{files}"))
+    list_files = []
+    for files in file_extensions:
+        list_files.extend(glob.glob(f"{dir}/{files}"))
 
-    return listFiles
+    return list_files
 
 
-def writeAllFiles(files):
+def write_all_files(files):
     """ Write a list of file with index
     """
 
@@ -40,22 +40,22 @@ def writeAllFiles(files):
         i += 1
 
 
-def chooseAnImage(dir):
+def choose_an_image(dir):
     """ Allow users to choose an image from a list
 
     dir : directory in which user will choose image
 
     Return : chosen Image path
     """
-    files = getAllFiles(dir)
-    writeAllFiles(files)
+    files = get_all_files(dir)
+    write_all_files(files)
 
     if(len(files) > 0):
-        indexImage = (int)(input("Which img would you like to analyse : "))
+        index_image = (int)(input("Which img would you like to analyse : "))
 
-        chosenImg = files[indexImage]
-        print(f"Image chosen : {chosenImg}")
+        chosen_img = files[index_image]
+        print(f"Image chosen : {chosen_img}")
 
-        return chosenImg
+        return chosen_img
     else:
         print("No images found in directory '{dir}' !", file=sys.stderr)

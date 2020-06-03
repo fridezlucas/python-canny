@@ -14,13 +14,13 @@ import os
 import platform
 
 
-def clearShell():
+def clear_shell():
     """ Clear Shell according to current OS
 
     Run os.system command : cls on Windows; clear otherwise
     """
-    currentOs = platform.system()
-    if(currentOs == "Windows"):
+    current_os = platform.system()
+    if(current_os == "Windows"):
         os.system("cls")
     else:
         os.system("clear")
@@ -33,16 +33,16 @@ def main():
     """
 
     # Show contributors
-    clearShell()
+    clear_shell()
     print("ts-canny-project")
     print("Authors : Fridez Lucas, Goffinet Edouard, Laissue Luca")
     print("Version : 1.0\n")
 
     # Run main program
     directory = f"{os.getcwd()}/img"
-    imagePath = file_selector.chooseAnImage(directory)
+    image_path = file_selector.choose_an_image(directory)
 
-    plotter.plotAll(imagePath)
+    plotter.plot_all(image_path)
 
 
 # Main Program

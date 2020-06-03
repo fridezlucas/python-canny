@@ -43,36 +43,36 @@ def sobel_filters(img):
     """
 
     # sobel filters for each direction (x; y)
-    Kx = np.array([[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]], np.float32)
-    Ky = np.array([[1, 2, 1], [0, 0, 0], [-1, -2, -1]], np.float32)
+    k_x = np.array([[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]], np.float32)
+    k_y = np.array([[1, 2, 1], [0, 0, 0], [-1, -2, -1]], np.float32)
 
     # Apply filters
-    Ix = ndimage.filters.convolve(img, Kx)
-    Iy = ndimage.filters.convolve(img, Ky)
+    i_x = ndimage.filters.convolve(img, k_x)
+    i_y = ndimage.filters.convolve(img, k_y)
 
     # Get magnitude G and slope theta of gradient
-    G = np.hypot(Ix, Iy)
-    G = G / G.max() * 255
-    theta = np.arctan2(Iy, Ix)
+    g = np.hypot(i_x, i_y)
+    g = g / g.max() * 255
+    theta = np.arctan2(i_y, i_x)
 
-    return (G, theta)
+    return (g, theta)
 
 
-def non_max_suppression(img, D):
+def non_max_suppression(img, d):
     """ Delete all non max value according to gradient
 
     Only edge will be kept
 
     Return : Non zero image
     """
-    M, N = img.shape
-    Z = np.zeros((M, N), dtype=np.int32)
-    alpha = D * 180. / np.pi
+    m, n = img.shape
+    z = np.zeros((m, n), dtype=np.int32)
+    alpha = d * 180. / np.pi
     alpha[alpha < 0] += 180
 
     # Suppress each non max value
-    for i in range(1, M-1):
-        for j in range(1, N-1):
+    for i in range(1, m-1):
+        for j in range(1, n-1):
             try:
                 q = 255
                 r = 255
@@ -96,17 +96,16 @@ def non_max_suppression(img, D):
 
                 # Apply weak/strong selection
                 if (img[i, j] >= q) and (img[i, j] >= r):
-                    Z[i, j] = img[i, j]
+                    z[i, j] = img[i, j]
                 else:
-                    Z[i, j] = 0
+                    z[i, j] = 0
 
             except IndexError as e:
                 pass
 
-    return Z
+    return z
 
-
-def threshold(img, lowThresholdRatio=0.05, highThresholdRatio=0.09):
+def threshold(img, low_threshold_ratio=0.05, high_threshold_ratio=0.09):
     """ Apply double threshold filter
 
     High treshold is used to identify strong pixel
@@ -118,19 +117,19 @@ def threshold(img, lowThresholdRatio=0.05, highThresholdRatio=0.09):
 
     Return : result image
     """
-    highThreshold = img.max() * highThresholdRatio
-    lowThreshold = highThreshold * lowThresholdRatio
+    high_threshold = img.max() * high_threshold_ratio
+    low_threshold = high_threshold * low_threshold_ratio
 
-    M, N = img.shape
-    res = np.zeros((M, N), dtype=np.int32)
+    m, n = img.shape
+    res = np.zeros((m, n), dtype=np.int32)
 
     weak = np.int32(25)
     strong = np.int32(255)
 
-    strong_i, strong_j = np.where(img >= highThreshold)
-    zeros_i, zeros_j = np.where(img < lowThreshold)
+    strong_i, strong_j = np.where(img >= high_threshold)
+    zeros_i, zeros_j = np.where(img < low_threshold)
 
-    weak_i, weak_j = np.where((img <= highThreshold) & (img >= lowThreshold))
+    weak_i, weak_j = np.where((img <= high_threshold) & (img >= low_threshold))
 
     res[strong_i, strong_j] = strong
     res[weak_i, weak_j] = weak
@@ -150,9 +149,9 @@ def hysteresis(img, weak, strong=255):
     """
 
     img = img[0]
-    M, N = img.shape
-    for i in range(1, M-1):
-        for j in range(1, N-1):
+    m, n = img.shape
+    for i in range(1, m-1):
+        for j in range(1, n-1):
             if (img[i, j] == weak):
                 try:
                     if ((img[i+1, j-1] == strong) or (img[i+1, j] == strong) or (img[i+1, j+1] == strong)
@@ -176,9 +175,9 @@ def canny(image):
     Return : All image steps
     """
     img_smoothed = convolve(image, gaussian_kernel(5, 1))
-    gradientMat, thetaMat = sobel_filters(img_smoothed)
-    nonMaxImg = non_max_suppression(gradientMat, thetaMat)
-    thresholdImg = threshold(nonMaxImg)
-    img_final = hysteresis(thresholdImg, 25)
+    gradient_mat, theta_mat = sobel_filters(img_smoothed)
+    non_max_img = non_max_suppression(gradient_mat, theta_mat)
+    threshold_img = threshold(non_max_img)
+    img_final = hysteresis(threshold_img, 25)
 
-    return [gradientMat, nonMaxImg, img_final]
+    return [gradient_mat, non_max_img, img_final]
