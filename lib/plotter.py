@@ -15,6 +15,8 @@ import numpy as np
 from lib.canny import canny
 from lib.fft import get_fft_image
 
+originalImageTitle = "Original Image"
+
 
 def erase2values(image, v1, v2, value=0):
     """ Erase 2 RGB values (set to 0)
@@ -79,7 +81,7 @@ def plot_image_rgb(image):
     figure.canvas.set_window_title("Step 1/5 : Image RGB")
 
     plt.suptitle("Analyse RGB image")
-    axes[0, 0].set_title("Original image")
+    axes[0, 0].set_title(originalImageTitle)
     axes[0, 0].imshow(img)
 
     axes[0, 1].set_title("Image R values")
@@ -106,7 +108,7 @@ def plot_image_cmy(image):
     figure.canvas.set_window_title("Step 2/5 : Image CMY")
 
     plt.suptitle("Analyse CMY image")
-    axes[0, 0].set_title("Original image")
+    axes[0, 0].set_title(originalImageTitle)
     axes[0, 0].imshow(img)
 
     axes[0, 1].set_title("Image C values")
@@ -167,7 +169,7 @@ def plot_image_fft(image):
     img = mpimg.imread(image)
 
     plt.suptitle("Step 5/5 : Canny Edge detectors")
-    axes[0][0].set_title("Original image")
+    axes[0][0].set_title(originalImageTitle)
     axes[0][0].imshow(img)
 
     img_canny = canny(get_blackwhite_image(img))

@@ -100,7 +100,7 @@ def non_max_suppression(img, d):
                 else:
                     z[i, j] = 0
 
-            except IndexError as e:
+            except IndexError:
                 pass
 
     return z
@@ -160,7 +160,7 @@ def hysteresis(img, weak, strong=255):
                         img[i, j] = strong
                     else:
                         img[i, j] = 0
-                except IndexError as e:
+                except IndexError:
                     pass
 
     return img
