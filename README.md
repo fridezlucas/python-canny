@@ -19,7 +19,7 @@ Le rendu de projet se trouve dans le wiki. [Voir le rendu de projet](https://lab
 
 - https://towardsdatascience.com/canny-edge-detection-step-by-step-in-python-computer-vision-b49c3a2d8123
 
-## Members
+## Membres
 
 <table>
    <tr>
